@@ -42,7 +42,7 @@
                     <div class="form-group{{ $errors->has('entrada') ? ' has-error' : '' }}">
                         <label for="entrada" class="col-md-2 control-label">Hora entrada</label>
                         <div class="col-md-8">
-                            <input id="entrada" type="time" class="form-control" name="entrada" value="{{ old('entrada') }}" placeholder="" autofocus autocomplete="off">
+                            <input id="entrada" type="time" class="form-control" name="entrada" required step="3600" value="{{ old('entrada') }}" placeholder="" autofocus autocomplete="off">
                             @if ($errors->has('entrada'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('entrada') }}</strong>
@@ -59,12 +59,6 @@
                         </div>
                     </div>                    
                 </form>
-                <br>
-                <a href="/tipos">
-                    <button type="button" class="btn btn-primary">
-                        Agregar nuevo tipo de vehiculo
-                    </button>
-                </a>
             </div>
         </div>
     </div>

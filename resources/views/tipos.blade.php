@@ -43,12 +43,6 @@
                         </div>
                     </div>                    
                 </form>
-                <br>
-                <a href="/entradas">
-                    <button type="button" class="btn btn-primary">
-                        Ir a registro de entradas
-                    </button>
-                </a>
             </div>
         </div>
     </div>

@@ -22,7 +22,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Vehiculos registrados
+                    Estacionamiento
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -38,10 +38,13 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('entradas') }}">Entradas</a>
+                            <a class="nav-link" href="{{ route('home') }}">Vehiculos registrados</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('tipos') }}">Tipos</a>
+                            <a class="nav-link" href="{{ route('entradas') }}">Registrar entrada</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('tipos') }}">Registrar tipo de vehiculo</a>
                         </li>
                     </ul>
                 </div>

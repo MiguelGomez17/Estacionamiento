@@ -20,6 +20,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/tipos', [App\Http\Controllers\TiposController::class, 'viewTipos'])->name('tipos');
 Route::any('/regTipo', [App\Http\Controllers\TiposController::class, 'regTipo'])->name('regTipo');
 
-
-Route::any('/regEntrada', [App\Http\Controllers\ParkingController::class, 'regEntrada'])->name('regEntrada');
 Route::get('/entradas', [App\Http\Controllers\ParkingController::class, 'viewEntradas'])->name('entradas');
+Route::any('/regEntrada', [App\Http\Controllers\ParkingController::class, 'regEntrada'])->name('regEntrada');
+Route::any('/regSalida/{id}', [App\Http\Controllers\ParkingController::class, 'regSalida'])->name('regSalida/{id}');
