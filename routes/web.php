@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/tipos', [App\Http\Controllers\HomeController::class, 'index'])->name('tipos');
+
+
+Route::any('/regEntrada', [App\Http\Controllers\ParkingController::class, 'regEntrada'])->name('regEntrada');
