@@ -15,7 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/tipos', [App\Http\Controllers\HomeController::class, 'index'])->name('tipos');
+
+
+Route::get('/tipos', [App\Http\Controllers\TiposController::class, 'viewTipos'])->name('tipos');
+Route::any('/regTipo', [App\Http\Controllers\TiposController::class, 'regTipo'])->name('regTipo');
 
 
 Route::any('/regEntrada', [App\Http\Controllers\ParkingController::class, 'regEntrada'])->name('regEntrada');
+Route::get('/entradas', [App\Http\Controllers\ParkingController::class, 'viewEntradas'])->name('entradas');

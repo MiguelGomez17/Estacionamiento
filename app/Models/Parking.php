@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Parking extends Model
 {
     protected $fillable = [
-        'placas', 'tipo', 'entrada', 'salida'
+        'placas', 'tipo', 'tiempo', 'entrada', 'salida'
     ];
 }

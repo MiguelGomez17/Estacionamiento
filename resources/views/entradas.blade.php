@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+    <div class="container">
         <div class="card">
             <div class="card-header">
                 Registro de entradas
@@ -27,9 +27,9 @@
                         
                         <div class="col-md-8">
                         <select id="tipo" class="form-control" name="tipo" value="{{ old('tipo') }}" placeholder="" autofocus autocomplete="off">
-                                <option value="Oficial">Oficial</option>
-                                <option value="Residente">Recidente</option>
-                                <option value="NoResidente">No Residente</option>
+                                @foreach($Tipos as $Tipo)
+                                <option value="{{$Tipo->tipo}}">{{$Tipo->tipo}}</option>
+                                @endforeach
                             </select>
                             @if ($errors->has('tipo'))
                             <span class="help-block">
@@ -42,7 +42,7 @@
                     <div class="form-group{{ $errors->has('entrada') ? ' has-error' : '' }}">
                         <label for="entrada" class="col-md-2 control-label">Hora entrada</label>
                         <div class="col-md-8">
-                            <input id="entrada" type="datetime-local" class="form-control" name="entrada" value="{{ old('entrada') }}" placeholder="" autofocus autocomplete="off">
+                            <input id="entrada" type="time" class="form-control" name="entrada" value="{{ old('entrada') }}" placeholder="" autofocus autocomplete="off">
                             @if ($errors->has('entrada'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('entrada') }}</strong>
@@ -60,7 +60,7 @@
                     </div>                    
                 </form>
                 <br>
-                <a href="">
+                <a href="/tipos">
                     <button type="button" class="btn btn-primary">
                         Agregar nuevo tipo de vehiculo
                     </button>

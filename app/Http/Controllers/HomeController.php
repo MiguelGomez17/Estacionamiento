@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $Parking = DB::table('parkings')->paginate(10000, ['*'], 'parkings');
+
+        
+        return view('registro', ['Parkings'=>$Parking]);
+ 
     }
 }
