@@ -43,12 +43,10 @@ class ParkingController extends Controller
     $Parking->save();
 
     $Parking = Parking::find($id);
-    $tiempoSalida = date_parse($Parking->salida);
-    $intTiempoSalida = $tiempoSalida['hour'];
-    $tiempoEntrada = date_parse($Parking->entrada);
-    $intTiempoEntrada = $tiempoEntrada['hour'];
-    $Parking->tiempo = ($intTiempoSalida-$intTiempoEntrada) * 60 ;
-    $Parking->salida = $request->salida;
+    $tiempoEntrada = strtotime($Parking->entrada);
+    $tiempoSalida = strtotime($Parking->salida);
+    $interval = $tiempoSalida - $tiempoEntrada;
+    $Parking->tiempo = floor($interval / 60);
     $Parking->save();
 
     $Parking = Parking::find($id);

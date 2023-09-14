@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('placas');
             $table->string('tipo');
             $table->string('tiempo')->nullable()->default(null);
-            $table->time('entrada');
-            $table->time('salida')->nullable()->default(null);
+            $table->string('entrada')->nullable()->default(null);
+            $table->string('salida')->nullable()->default(null);
             $table->timestamps();
         });
     }

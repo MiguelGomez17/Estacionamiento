@@ -48,7 +48,7 @@
                                                             {{ csrf_field() }}
                                                             <div class="form-group{{ $errors->has('salida') ? ' has-error' : '' }}">
                                                                 <div class="col-md-8">
-                                                                    <input id="salida" type="time" class="form-control" name="salida" required step="3600" value="{{ old('salida') }}" placeholder="" autofocus autocomplete="off">
+                                                                    <input id="salida" type="datetime-local" class="form-control" name="salida" required value="{{ old('salida') }}" placeholder="" autofocus autocomplete="off">
                                                                     @if ($errors->has('salida'))
                                                                     <span class="help-block">
                                                                         <strong>{{ $errors->first('salida') }}</strong>
@@ -71,7 +71,7 @@
                                                         <td>
                                                         @foreach($Tipos as $Tipo)
                                                         @if($Parking->tipo = $Tipo->tipo)
-                                                        {{ $Parking->tiempo * $Tipo->monto}} <br>
+                                                        $ {{ $Parking->tiempo * $Tipo->monto}} <br>
                                                         @endif
                                                         @endforeach
                                                         </td>
