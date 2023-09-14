@@ -8,12 +8,62 @@
             </div>
             <div class="card shadow mb-4">
                 <div class="card-body">
-                    
-                <a href="/entradas">
-                    <button type="button" class="btn btn-primary">
-                        Registrar nueva entrada
-                    </button>
-                </a>
+                    <div class="container">
+                        <a href="/entradas">
+                            <button type="button" class="btn btn-primary">
+                                Registrar nueva entrada
+                            </button>
+                        </a>
+                        <a href="/exportPdf" target="_blank">
+                            <button type="button" class="btn btn-success">
+                                Generar reporte
+                            </button>
+                        </a>
+                    </div>
+                    <div>
+                        <h4>Filtrar</h4>
+                        <form class="form-horizontal" autocomplete="off" method="POST" action="/filtro" enctype="multipart/form-data" style="width:60%">
+                            {{ csrf_field() }}
+                            <div class="form-group{{ $errors->has('entrada') ? ' has-error' : '' }}">
+                                <div class="col-md-8">
+                                    <label for="entrada">Hora entrada (min)</label>
+                                    <input id="entrada" type="datetime-local" class="form-control" name="entrada" required value="{{ old('entrada') }}" placeholder="" autofocus autocomplete="off">
+                                    @if ($errors->has('entrada'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('entrada') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group{{ $errors->has('salida') ? ' has-error' : '' }}">
+                                <div class="col-md-8">
+                                    <label for="salida">Hora salida (max)</label>
+                                    <input id="salida" type="datetime-local" class="form-control" name="salida" required value="{{ old('salida') }}" placeholder="" autofocus autocomplete="off">
+                                    @if ($errors->has('salida'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('salida') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <button type="submit" class="btn btn-primary">
+                                        Buscar
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <h4>Vehiculos registrados</h4>
+                    @if(isset($datos))
+                    <h5>{{$datos}}</h5>
+                    <h5><a href="/home">
+                        <button class="btn btn-secondary">
+                            Quitar filtros
+                        </button>
+                    </a></h5>
+                    @endif
                     <div class="table-responsive" style="width: 95%;">
                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                         
@@ -71,7 +121,7 @@
                                                         <td>
                                                         @foreach($Tipos as $Tipo)
                                                         @if($Parking->tipo = $Tipo->tipo)
-                                                        $ {{ $Parking->tiempo * $Tipo->monto}} <br>
+                                                        ${{ $Parking->tiempo * $Tipo->monto}} <br>
                                                         @endif
                                                         @endforeach
                                                         </td>

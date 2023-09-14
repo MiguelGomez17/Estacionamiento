@@ -23,3 +23,5 @@ Route::any('/regTipo', [App\Http\Controllers\TiposController::class, 'regTipo'])
 Route::get('/entradas', [App\Http\Controllers\ParkingController::class, 'viewEntradas'])->name('entradas');
 Route::any('/regEntrada', [App\Http\Controllers\ParkingController::class, 'regEntrada'])->name('regEntrada');
 Route::any('/regSalida/{id}', [App\Http\Controllers\ParkingController::class, 'regSalida'])->name('regSalida/{id}');
+Route::any('/exportPdf', [App\Http\Controllers\ParkingController::class, 'exportPdf'])->name('exportPdf');
+Route::any('/filtro', [App\Http\Controllers\ParkingController::class, 'filtro'])->name('filtro');
